@@ -15,6 +15,7 @@
         .box { background:#eee; border:2px solid #ccc; height:120px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-weight:bold; }
         .topbar { display:flex; justify-content:space-between; align-items:center; max-width:700px; margin:10px auto; }
     </style>
+<<<<<<< HEAD
             <nav>
             <a href="subjects">Subjects</a> | 
             <a href="game">Game</a> | 
@@ -22,6 +23,8 @@
             <a href="inventory.jsp">Inventory</a> | 
             <a href="logout">Logout</a>
         </nav>
+=======
+>>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
     <script>
         async function openBox(el, idx) {
             if (el.dataset.opened==='true') return;
@@ -32,6 +35,7 @@
                 const j = await res.json();
                 if (j.error) { el.textContent = j.error; return; }
                 // multi reveal (when plays == 0)
+<<<<<<< HEAD
                 if (j.multi && Array.isArray(j.results)) {
                     const boxes = document.querySelectorAll('.box');
                     for (let i = 0; i < j.results.length && i < boxes.length; i++) {
@@ -72,6 +76,36 @@
                 }
                 // single reveal - apply color class and friendly text
                 el.classList.remove('jackpotprev','stickerprev','play2prev','play1prev','points50prev','jackpot','sticker','play2','play1','points50','none');
+=======
+                    if (j.multi && Array.isArray(j.results)) {
+                    const boxes = document.querySelectorAll('.box');
+                    for (let i=0;i<j.results.length && i<boxes.length;i++) {
+                        const b = boxes[i];
+                        const r = j.results[i];
+                        // skip previously picked / excluded boxes
+                        if (r.reward === 'excluded') continue;
+                        b.classList.remove('jackpot','sticker','play2','play1','points50','none');
+                        b.classList.add('opened'); b.dataset.opened='true';
+                        if (r.reward && r.reward.startsWith('play:100')) {
+                            b.classList.add('jackpot'); b.textContent = 'JACKPOT (100 plays)';
+                        } else if (r.reward && r.reward.startsWith('item:')) {
+                            b.classList.add('sticker'); b.textContent = r.itemDisplay ? r.itemDisplay : r.reward;
+                        } else if (r.reward && r.reward.startsWith('play:2')) {
+                            b.classList.add('play2'); b.textContent = 'Play x2';
+                        } else if (r.reward && r.reward.startsWith('play:1')) {
+                            b.classList.add('play1'); b.textContent = 'Play x1';
+                        } else if (r.reward && r.reward.startsWith('points:')) {
+                            b.classList.add('points50'); b.textContent = '50 pts';
+                        } else {
+                            b.classList.add('none'); b.textContent = r.reward;
+                        }
+                    }
+                    // preview only: do not change displayed stats
+                    return;
+                }
+                // single reveal - apply color class and friendly text
+                el.classList.remove('jackpot','sticker','play2','play1','points50','none');
+>>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
                 el.classList.add('opened'); el.dataset.opened='true';
                 if (j.reward && j.reward.startsWith('play:100')) {
                     el.classList.add('jackpot'); el.textContent = 'JACKPOT (100 plays)';
@@ -109,7 +143,11 @@
                                     const r = j.results[i];
                                     // skip excluded boxes
                                     if (r.reward === 'excluded') continue;
+<<<<<<< HEAD
                                     b.classList.remove('jackpot','sticker','play2','play1','points50','none', 'jackpotprev','stickerprev','play2prev','play1prev','points50prev');
+=======
+                                    b.classList.remove('jackpot','sticker','play2','play1','points50','none');
+>>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
                                     b.classList.add('opened'); b.dataset.opened='true';
                                     if (r.reward && r.reward.startsWith('play:100')) {
                                         b.classList.add('jackpot'); b.textContent = 'JACKPOT (100 plays)';

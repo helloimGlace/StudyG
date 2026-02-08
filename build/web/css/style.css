@@ -12,9 +12,12 @@ form input[type=text], form input[type=password] { padding:6px; margin:4px 0; }
 .box.play1 { background: #1e88e5; color: #fff; border-color: #155fa0; }
 .box.points50 { background: #2e7d32; color: #fff; border-color: #1b5e20; }
 .box.none { background: #eee; color: #222; border-color: #ccc; }
+<<<<<<< HEAD
 
 .box.jackpotprev { background: #ee5050; color: #fff; border-color: gray; }
 .box.stickerprev { background: #f1db90; color: #000; border-color: gray; }
 .box.play2prev { background: #b764eb; color: #fff; border-color: gray; }
 .box.play1prev { background: #529fe2; color: #fff; border-color: gray; }
 .box.points50prev { background: #6eb671; color: #fff; border-color: gray; }
+=======
+>>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5

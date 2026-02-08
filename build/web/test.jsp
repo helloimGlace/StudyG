@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
+<<<<<<< HEAD
         <nav>
             <a href="subjects">Subjects</a> | 
             <a href="game">Game</a> | 
@@ -27,6 +28,9 @@
         </nav>
         <h2>Quick Review: <%= subject%></h2>
         <p><strong>Question:</strong> <%= question%></p>
+=======
+        <h2>Quick Review: <%= subject%></h2>
+>>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
         <form action="test" method="post">
             <input type="hidden" name="subject" value="<%= subject%>"/>
             Answer: <input type="text" name="answer" required/>

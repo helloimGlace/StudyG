@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
+<<<<<<< HEAD
         <nav>
             <a href="subjects">Subjects</a> | 
             <a href="game">Game</a> | 
@@ -24,6 +25,8 @@
             <a href="inventory.jsp">Inventory</a> | 
             <a href="logout">Logout</a>
         </nav>
+=======
+>>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
         <h2>Mystery Box</h2>
         <p>Plays available: <%= plays%></p>
         <p>
