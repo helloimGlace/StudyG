@@ -1,20 +1,10 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# StudyG
-=======
-=======
->>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
 # StudG - Study Game Web Application
 
 A Java-based web application that gamifies learning with mystery box rewards, item collection, and progress tracking.
 
 ## Features
 
-<<<<<<< HEAD
-### 🎮 Core Gameplay
-=======
 ### Core Gameplay
->>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
 - **Mystery Box System**: 16 interactive boxes with per-box probability distributions
   - Each box has unique reward odds for points, play tickets, and rare items
   - Jackpot mechanic (1/1000 chance per real open)
@@ -29,21 +19,13 @@ A Java-based web application that gamifies learning with mystery box rewards, it
   - **Play Tickets**: Single (play:1), Double (play:2), or Jackpot (play:100)
   - **Items**: Rare stickers to collect and display
 
-<<<<<<< HEAD
-### 👤 User Management
-=======
 ### User Management
->>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
 - User registration and authentication
 - Session-based login
 - User profiles with inventory tracking
 - Persistent data via DAO pattern (MSSQL or InMemory)
 
-<<<<<<< HEAD
-### 📦 Inventory System
-=======
 ### Inventory System
->>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
 - View collected items
 - Item persistence in database
 - Display items in user profile
@@ -108,21 +90,6 @@ StudG/
 - Apache Ant
 - MSSQL Server (optional; defaults to in-memory DAO)
 
-<<<<<<< HEAD
-### Build Instructions
-
-```bash
-cd d:\FPT\StudG
-
-# Clean and build
-ant clean build
-
-# Deploy to Tomcat
-# Copy build/web/ contents to Tomcat webapps/StudG/
-```
-
-=======
->>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
 ### Database Setup (Optional - MSSQL)
 
 1. Run [sql/schema.sql](sql/schema.sql) to create tables:
@@ -135,18 +102,9 @@ ant clean build
 ### Running Locally
 
 ```bash
-<<<<<<< HEAD
-# Using Tomcat
-# 1. Start Tomcat server
-# 2. Navigate to http://localhost:8080/StudG/
-
-# Or use NetBeans IDE:
-# Open the project and run (F6)
-=======
 # Use NetBeans IDE:
 # Open the project and run (F6)
 # http://localhost:8080/StudG/
->>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
 ```
 
 ## User Workflow
@@ -169,11 +127,7 @@ POST /openbox?index=0
 ```json
 {
   "reward": "play:2",
-<<<<<<< HEAD
-  "itemDisplay": "🎟️ Play x2",
-=======
   "itemDisplay": "Play x2",
->>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
   "points": 150,
   "plays": 2
 }
@@ -310,7 +264,3 @@ Project for educational purposes.
 ## Contact & Support
 
 For issues or questions, check server logs in Tomcat `catalina.out` or browser DevTools (Network tab for HTTP responses).
-<<<<<<< HEAD
->>>>>>> a132d31 (Change)
-=======
->>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
