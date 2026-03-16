@@ -40,6 +40,8 @@ public class MainController extends HttpServlet {
     private static final String CLEARPICKED_CONTROLLER = "/clearpicked";
     private static final String SHOP = ShopController.ACTION;
     private static final String SHOP_CONTROLLER = "/shop";
+    private static final String JUDGE = "Judge"; // corresponds to com.studg.servlet.JudgeServlet.ACTION
+    private static final String JUDGE_CONTROLLER = "/judge";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -93,6 +95,9 @@ public class MainController extends HttpServlet {
                     break;
                 case SHOP:
                     url = SHOP_CONTROLLER;
+                    break;
+                case JUDGE:
+                    url = JUDGE_CONTROLLER;
                     break;
                 default:
                     // keep default
