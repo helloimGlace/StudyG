@@ -15,11 +15,11 @@
 <body>
 <h1>Welcome, <%= user %></h1>
 <nav>
-    <a href="subjects">Subjects</a> | 
-    <a href="game">Game</a> | 
-    <a href="shop">Shop</a> | 
-    <a href="inventory.jsp">Inventory</a> | 
-    <a href="logout">Logout</a>
+    <a href="MainController?action=Subjects">Subjects</a> |
+    <a href="MainController?action=Game">Game</a> |
+    <a href="MainController?action=Shop">Shop</a> |
+    <a href="inventory.jsp">Inventory</a> |
+    <a href="MainController?action=Logout">Logout</a>
 </nav>
 </body>
 </html>

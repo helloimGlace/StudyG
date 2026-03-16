@@ -8,11 +8,11 @@ import java.util.Map;
 public class InMemoryUserDAO implements UserDAO {
     private static final Map<String, User> users = new HashMap<>();
 
-    static {
-        User u = new User("alice", "pass"); u.setPoints(150); u.setPlays(1);
-        users.put(u.getUsername(), u);
-        users.put("bob", new User("bob","pass"));
-    }
+//    static {
+//        User u = new User("alice", "pass"); u.setPoints(150); u.setPlays(1);
+//        users.put(u.getUsername(), u);
+//        users.put("bob", new User("bob","pass"));
+//    }
 
     @Override
     public User findByUsername(String username) {

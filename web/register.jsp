@@ -8,12 +8,13 @@
 </head>
 <body>
 <h2>Register</h2>
-<form action="register" method="post">
+<form action="MainController" method="post">
+    <input type="hidden" name="action" value="Register" />
     Username: <input type="text" name="username" required/><br/>
     Password: <input type="password" name="password" required/><br/>
     <button type="submit">Create account</button>
     <p style="color:red">${param.error}</p>
 </form>
-<p><a href="login.jsp">Back to login</a></p>
+<p><a href="MainController?action=Login">Back to login</a></p>
 </body>
 </html>

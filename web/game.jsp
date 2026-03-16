@@ -17,20 +17,17 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-<<<<<<< HEAD
         <nav>
-            <a href="subjects">Subjects</a> | 
-            <a href="game">Game</a> | 
-            <a href="shop">Shop</a> | 
-            <a href="inventory.jsp">Inventory</a> | 
-            <a href="logout">Logout</a>
+            <a href="MainController?action=Subjects">Subjects</a> |
+            <a href="MainController?action=Game">Game</a> |
+            <a href="MainController?action=Shop">Shop</a> |
+            <a href="inventory.jsp">Inventory</a> |
+            <a href="MainController?action=Logout">Logout</a>
         </nav>
-=======
->>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
         <h2>Mystery Box</h2>
         <p>Plays available: <%= plays%></p>
         <p>
-            <a class="btn" href="mystery">Enter Mystery Boxes</a>
+            <a class="btn" href="MainController?action=Mystery">Enter Mystery Boxes</a>
         </p>
         <p><a href="home.jsp">Back</a></p>
     </body>

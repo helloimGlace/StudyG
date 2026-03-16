@@ -15,19 +15,17 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-<<<<<<< HEAD
         <nav>
-            <a href="subjects">Subjects</a> | 
-            <a href="game">Game</a> | 
-            <a href="shop">Shop</a> | 
-            <a href="inventory.jsp">Inventory</a> | 
-            <a href="logout">Logout</a>
+            <a href="MainController?action=Subjects">Subjects</a> |
+            <a href="MainController?action=Game">Game</a> |
+            <a href="MainController?action=Shop">Shop</a> |
+            <a href="inventory.jsp">Inventory</a> |
+            <a href="MainController?action=Logout">Logout</a>
         </nav>
-=======
->>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
         <h2>Shop</h2>
         <p>Points: <%= points%></p>
-        <form action="shop" method="post">
+        <form action="MainController" method="post">
+            <input type="hidden" name="action" value="Shop" />
             <button type="submit" name="buy" value="play">Buy 1 Play (100 points)</button>
             <button type="submit" name="buy" value="item">Buy Profile Item (200 points)</button>
         </form>
