@@ -6,8 +6,9 @@
         return;
     }
     Integer points = (Integer) session.getAttribute("points");
-    if (points == null)
-        points = 0;
+    if (points == null) points = 0;
+    java.util.List<com.studg.model.ShopItem> items = (java.util.List<com.studg.model.ShopItem>) request.getAttribute("items");
+    if (items == null) items = java.util.Collections.emptyList();
 %>
 <!DOCTYPE html>
 <html>
@@ -23,12 +24,25 @@
             <a href="MainController?action=Logout">Logout</a>
         </nav>
         <h2>Shop</h2>
-        <p>Points: <%= points%></p>
-        <form action="MainController" method="post">
-            <input type="hidden" name="action" value="Shop" />
-            <button type="submit" name="buy" value="play">Buy 1 Play (100 points)</button>
-            <button type="submit" name="buy" value="item">Buy Profile Item (200 points)</button>
-        </form>
+        <p>Points: <%= points %></p>
+
+        <table border="0" cellpadding="6">
+            <tr><th>Item</th><th>Price</th><th>Action</th></tr>
+            <% for (com.studg.model.ShopItem it : items) { %>
+                <tr>
+                    <td><%= it.getDisplayName() %></td>
+                    <td><%= it.getPrice() %></td>
+                    <td>
+                        <form action="MainController" method="post" style="display:inline">
+                            <input type="hidden" name="action" value="Shop" />
+                            <input type="hidden" name="itemKey" value="<%= it.getItemKey() %>" />
+                            <button type="submit" <%= (points < it.getPrice()) ? "disabled" : "" %> >Buy</button>
+                        </form>
+                    </td>
+                </tr>
+            <% } %>
+        </table>
+
         <p><a href="home.jsp">Back</a></p>
     </body>
 </html>

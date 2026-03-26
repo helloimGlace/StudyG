@@ -94,16 +94,12 @@
         <url-pattern>/shop</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>JudgeServlet</servlet-name>
-        <servlet-class>com.studg.controller.JudgeController</servlet-class>
-        <init-param>
-            <param-name>judgeUrl</param-name>
-            <param-value>http://127.0.0.1:8080/submit</param-value>
-        </init-param>
+        <servlet-name>ShopAdminController</servlet-name>
+        <servlet-class>com.studg.controller.ShopAdminController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>JudgeServlet</servlet-name>
-        <url-pattern>/judge</url-pattern>
+        <servlet-name>ShopAdminController</servlet-name>
+        <url-pattern>/admin/shop</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>

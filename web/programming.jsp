@@ -24,8 +24,8 @@
     <h2>Programming Homework (online judge)</h2>
     <p>Write your solution in the large editor below. The submission will be POSTed to a local judge server (configured on the server).</p>
 
-    <form action="MainController" method="post">
-        <input type="hidden" name="action" value="Judge" />
+    <form action="judge" method="post">
+        <!-- Directly post to the /judge controller mapped in web.xml -->
         <label for="lang">Language:</label>
         <select name="lang" id="lang">
             <option value="python3">Python 3</option>

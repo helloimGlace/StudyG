@@ -13,4 +13,22 @@ public class DAOFactory {
         }
         return new InMemoryUserDAO();
     }
+
+    public static ShopDAO getShopDAO() {
+        try (Connection c = DBUtil.getConnection()) {
+            if (c!=null) return new MSSQLShopDAO();
+        } catch (Exception e) {
+            // fallback
+        }
+        return new InMemoryShopDAO();
+    }
+
+    public static SubjectDAO getSubjectDAO() {
+        try (Connection c = DBUtil.getConnection()) {
+            if (c!=null) return new MSSQLSubjectDAO();
+        } catch (Exception e) {
+            // fallback
+        }
+        return new InMemorySubjectDAO();
+    }
 }

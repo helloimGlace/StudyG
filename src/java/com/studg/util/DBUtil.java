@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBUtil {
     // Configure for your MSSQL instance
-    private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=User_stats";
+    private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=StudG";
     private static final String USER = "sa";
     private static final String PASS = "12345";
 

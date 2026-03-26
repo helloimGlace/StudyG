@@ -1,5 +1,10 @@
 -- SQL schema for StudyGameWeb (MSSQL)
 
+CREATE DATABASE StudG
+GO
+USE StudG
+GO
+
 CREATE TABLE users (
     username VARCHAR(100) PRIMARY KEY,
     password VARCHAR(255) NOT NULL,
@@ -29,9 +34,18 @@ CREATE TABLE shop_items (
     price INT NOT NULL
 );
 
+CREATE TABLE subjects (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    subject VARCHAR(200) NOT NULL UNIQUE
+);
+
 -- sample data
 INSERT INTO users(username, password, points, plays) VALUES ('alice','pass',300,1);
 INSERT INTO users(username, password, points, plays) VALUES ('bob','pass',0,0);
 
 INSERT INTO shop_items(item_key, display_name, price) VALUES ('play_ticket','Play Ticket',100);
 INSERT INTO shop_items(item_key, display_name, price) VALUES ('sticker_rare','Rare Sticker',200);
+
+INSERT INTO subjects(subject) VALUES ('PRF193');
+INSERT INTO subjects(subject) VALUES ('PRO102');
+INSERT INTO subjects(subject) VALUES ('PRJ301');

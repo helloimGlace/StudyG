@@ -1,11 +1,19 @@
 package com.studg.service;
 
-import java.util.Arrays;
+import com.studg.dao.DAOFactory;
+import com.studg.dao.SubjectDAO;
+
 import java.util.List;
 
 public class SimpleSubjectService implements SubjectService {
+    private final SubjectDAO subjectDAO;
+
+    public SimpleSubjectService() {
+        subjectDAO = DAOFactory.getSubjectDAO();
+    }
+
     @Override
     public List<String> availableSubjects() {
-        return Arrays.asList("Math");
+        return subjectDAO.availableSubjects();
     }
 }

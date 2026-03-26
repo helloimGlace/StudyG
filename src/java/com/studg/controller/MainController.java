@@ -5,6 +5,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.studg.dao.UserDAO;
+import com.studg.dao.DAOFactory;
+import com.studg.model.User;
 
 public class MainController extends HttpServlet {
 
@@ -40,11 +45,33 @@ public class MainController extends HttpServlet {
     private static final String CLEARPICKED_CONTROLLER = "/clearpicked";
     private static final String SHOP = ShopController.ACTION;
     private static final String SHOP_CONTROLLER = "/shop";
-    private static final String JUDGE = "Judge"; // corresponds to com.studg.servlet.JudgeServlet.ACTION
+    private static final String JUDGE = "Judge"; // corresponds to com.studg.controller.JudgeController.ACTION
     private static final String JUDGE_CONTROLLER = "/judge";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        // Refresh session user info from DB so all pages use authoritative values
+        HttpSession session = request.getSession(false);
+        if (session != null && session.getAttribute("user") != null) {
+            String uname = (String) session.getAttribute("user");
+            try {
+                UserDAO userDao = DAOFactory.getUserDAO();
+                User u = userDao.findByUsername(uname);
+                if (u == null) {
+                    // user no longer exists in DB -> invalidate session
+                    session.invalidate();
+                    response.sendRedirect("login.jsp");
+                    return;
+                }
+                // sync session counters from DB
+                session.setAttribute("points", u.getPoints());
+                session.setAttribute("plays", u.getPlays());
+            } catch (Exception e) {
+                // DB unavailable: keep existing session values (fallback)
+                log("Warning: could not refresh user from DB: " + e);
+            }
+        }
 
         response.setContentType("text/html;charset=UTF-8");
         String url = "login.jsp";
@@ -104,14 +131,14 @@ public class MainController extends HttpServlet {
                     break;
             }
 
-            
+
         } catch (Exception e) {
             log("Error at MainController: " + e);
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
