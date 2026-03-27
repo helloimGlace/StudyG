@@ -15,27 +15,28 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<<<<<<< HEAD
-    <nav>
-        <a href="subjects">Subjects</a> | 
-        <a href="game">Game</a> | 
-        <a href="shop">Shop</a> | 
-        <a href="inventory.jsp">Inventory</a> | 
-        <a href="logout">Logout</a>
+<div class="container">
+    <nav class="navbar">
+        <a href="MainController?action=Subjects">Subjects</a>
+        <a href="MainController?action=Game">Game</a>
+        <a href="MainController?action=Shop">Shop</a>
+        <a href="inventory.jsp">Inventory</a>
+        <a href="MainController?action=Logout">Logout</a>
     </nav>
-=======
->>>>>>> 1139f5830d202aa8582165450a4d93ed08554eb5
-    <h2>Your Inventory</h2>
-    <p>Player: <b><%= username %></b></p>
-    <ul>
-        <% if (items.isEmpty()) { %>
-            <li>No items yet.</li>
-        <% } else {
-            for (String it : items) { %>
-                <li><%= it %></li>
-        <%  }
-        } %>
-    </ul>
-    <p><a href="home.jsp">Back</a></p>
+    <div class="card">
+        <h2>Your Inventory</h2>
+        <p>Player: <strong><%= username %></strong></p>
+        <ul class="inventory-list">
+            <% if (items.isEmpty()) { %>
+                <li>No items yet. Visit the shop!</li>
+            <% } else {
+                for (String it : items) { %>
+                    <li><%= it %></li>
+            <%  }
+            } %>
+        </ul>
+        <p><a href="home.jsp" class="btn-secondary">Back</a></p>
+    </div>
+</div>
 </body>
 </html>
