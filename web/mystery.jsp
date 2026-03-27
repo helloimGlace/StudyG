@@ -11,9 +11,41 @@
     <title>Mystery Boxes</title>
     <link rel="stylesheet" href="css/style.css" />
     <style>
-        .grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; max-width:700px; margin:20px auto; }
-        .box { background:#eee; border:2px solid #ccc; height:120px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-weight:bold; }
-        .topbar { display:flex; justify-content:space-between; align-items:center; max-width:700px; margin:10px auto; }
+        /* Override cho grid riêng c?a mystery */
+        .mystery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 700px;
+            margin: 2rem auto;
+        }
+        .box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 1.5rem 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: 1px solid #fed7aa;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .box:hover {
+            transform: scale(0.98);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        /* Reward color classes (cam) */
+        .box.jackpot { background: linear-gradient(135deg, #c2410c, #9a3412); color: #fff; border: none; }
+        .box.sticker { background: linear-gradient(135deg, #ffb347, #f97316); color: #fff; border: none; }
+        .box.play2 { background: linear-gradient(135deg, #f97316, #ea580c); color: #fff; border: none; }
+        .box.play1 { background: linear-gradient(135deg, #fb923c, #f97316); color: #fff; border: none; }
+        .box.points50 { background: linear-gradient(135deg, #fdba74, #f97316); color: #2d2a24; border: none; }
+        .box.none { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+
+        .box.jackpotprev, .box.stickerprev, .box.play2prev, .box.play1prev, .box.points50prev {
+            opacity: 0.7;
+            filter: grayscale(0.2);
+        }
     </style>
     <script>
         async function openBox(el, idx) {
